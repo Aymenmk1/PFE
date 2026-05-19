@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+ 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.atlas-root,
+.atlas-root *,
+.atlas-root *::before,
+.atlas-root *::after {
+  font-family: 'Montserrat', sans-serif;
+}
+ 
+/* ── Root layout ── */
+.atlas-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+ 
+/* ── Background image ── */
+.atlas-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+ 
+.atlas-bg img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85) contrast(1.08) saturate(1.1);
+}
+ 
+.atlas-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+ 
+/* ── Card ── */
+.atlas-container {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 95vw;
+  min-height: 480px;
+  z-index: 1;
+}
+ 
+.atlas-container p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+}
+ 
+.atlas-container span {
+  font-size: 12px;
+}
+ 
+.atlas-container a {
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+}
+ 
+.atlas-container button:not(.role-btn):not(.hidden-btn) {
+  background: linear-gradient(135deg, #1a1a1a, #3d0000);
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+ 
+.atlas-container button:not(.role-btn):not(.hidden-btn):hover {
+  filter: brightness(1.2);
+}
+ 
+.atlas-container button.hidden-btn {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+ 
+.atlas-container button.hidden-btn:hover {
+  opacity: 0.8;
+}
+ 
+.atlas-container form {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+ 
+.atlas-container form h1 {
+  color: #3d0000;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  user-select: none;
+}
+ 
+.atlas-container input {
+  background: #e8e8e8;
+  border: 1.5px solid #ccc;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: #111;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+ 
+.atlas-container input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+ 
+.atlas-container input:focus {
+  background: #ddd;
+  border-color: #3d0000;
+}
+ 
+/* ── Role selector ── */
+.role-selector {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0 6px;
+}
+ 
+.role-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 72px;
+  height: 72px;
+  background: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: all 0.25s ease;
+}
+ 
+.role-btn i {
+  font-size: 22px;
+}
+ 
+.role-btn span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+ 
+.role-btn:hover {
+  border-color: #3d0000;
+  color: #3d0000;
+  background: #f9f0f0;
+  opacity: 1;
+}
+ 
+.role-btn--active {
+  background: linear-gradient(135deg, #1a1a1a, #3d0000);
+  border-color: transparent;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(61, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+ 
+.role-btn--active:hover {
+  background: linear-gradient(135deg, #2a2a2a, #5a0000);
+  border-color: transparent;
+  color: #fff;
+  opacity: 1;
+  filter: brightness(1.1);
+}
+ 
+/* ── Form panels ── */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+ 
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+ 
+.atlas-container.active .sign-in {
+  transform: translateX(100%);
+}
+ 
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+ 
+.atlas-container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: atlas-move 0.6s;
+}
+ 
+@keyframes atlas-move {
+  0%, 49.99% { opacity: 0; z-index: 1; }
+  50%, 100%  { opacity: 1; z-index: 5; }
+}
+ 
+/* ── Toggle panel ── */
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+ 
+.atlas-container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+ 
+.toggle {
+  background: linear-gradient(135deg, #1a1a1a, #3d0000);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+ 
+.atlas-container.active .toggle {
+  transform: translateX(50%);
+}
+ 
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transition: all 0.6s ease-in-out;
+}
+ 
+.toggle-panel h1 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  user-select: none;
+}
+ 
+.toggle-panel h1 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  user-select: none;
+}
+ 
+.toggle-left {
+  transform: translateX(-200%);
+}
+ 
+.atlas-container.active .toggle-left {
+  transform: translateX(0);
+}
+ 
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+ 
+.atlas-container.active .toggle-right {
+  transform: translateX(200%);
+}
+ 
+/* ── Messages ── */
+.atlas-error {
+  color: #c0392b;
+  margin-top: 8px;
+  font-size: 0.92em;
+  min-height: 1.2em;
+}
+ 
+.atlas-success {
+  color: #27ae60;
+  margin-top: 8px;
+  font-size: 0.92em;
+}
+ 
+.red-color {
+  color: #3d0000;
+  user-select: none;
+}
+ 
+/* ── Logo dans le toggle ── */
+.toggle-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}

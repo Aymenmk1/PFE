@@ -1,0 +1,36 @@
+/* ============================================================
+   AtlasHost — index.css
+   Rôle : reset global UNIQUEMENT — tout le design est dans
+   Visiteur.css et Famille.css
+   ============================================================ */
+
+/* ─── Reset minimal ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── #root ne contraint RIEN ─── */
+/* Visiteur.css et Famille.css gèrent le layout via leurs propres règles */
+#root {
+  min-height: 100vh;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
